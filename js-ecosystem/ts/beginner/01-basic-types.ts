@@ -1,5 +1,5 @@
 // ====== 初级 01：基础类型 ======
-// 运行命令: npx ts-node beginner/01-basic-types.ts
+// 运行命令: npx ts-node js-ecosystem/ts/beginner/01-basic-types.ts
 // 考察点: string, number, boolean, array, 元组, 模板字符串, 数组方法
 
 

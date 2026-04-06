@@ -1,5 +1,5 @@
 // ====== 初级 02：函数与参数类型 ======
-// 运行命令: npx ts-node beginner/02-functions.ts
+// 运行命令: npx ts-node js-ecosystem/ts/beginner/02-functions.ts
 // 考察点: 函数参数类型、返回值类型、可选参数、默认值、箭头函数
 
 

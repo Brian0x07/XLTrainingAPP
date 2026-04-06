@@ -172,8 +172,8 @@ swift apple-ecosystem/swift/beginner/<文件名>.swift
 - [x] `02-functions.ts` 第 2 题：可选参数与默认值 ⭐⭐
 - [x] `02-functions.ts` 第 3 题：箭头函数 ⭐⭐
 - [x] `03-interface-type.ts` 第 1 题：定义接口 ⭐
-- [ ] `03-interface-type.ts` 第 2 题：type 别名与联合类型 ⭐⭐ ← 当前
-- [ ] `03-interface-type.ts` 第 3 题：interface vs type ⭐⭐
+- [x] `03-interface-type.ts` 第 2 题：type 别名与联合类型 ⭐⭐
+- [x] `03-interface-type.ts` 第 3 题：interface vs type ⭐⭐
 
 #### 中级 intermediate
 （待初级完成后根据答题情况生成）

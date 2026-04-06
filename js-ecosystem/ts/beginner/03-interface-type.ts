@@ -1,5 +1,5 @@
 // ====== 初级 03：interface 与 type ======
-// 运行命令: npx ts-node beginner/03-interface-type.ts
+// 运行命令: npx ts-node js-ecosystem/ts/beginner/03-interface-type.ts
 // 考察点: interface 定义、可选属性、readonly、type 别名、联合类型基础
 
 
@@ -75,7 +75,41 @@ console.log(product2)
 // 👇 在下面写你的代码
 
 type Status = "success" | "error" | "loading"
+type ID = string | number
 
+function showStatus(status: Status) {
+    if (status === "success") {
+        return "✅ 操作成功"
+    } else if (status === "error") {
+        return "❌ 操作失败"
+    } else if (status === "loading") {
+        return "⏳ 加载中..."
+    }
+    return ""
+}
+
+console.log(showStatus("success"))
+console.log(showStatus("loading"))
+console.log(showStatus("error"))
+
+function printId(id: ID) {
+    if (typeof id === "string") {
+        return `字符串ID: ${id}`
+    } else if (typeof id === "number") {
+        return `数字ID: ${id}`
+    }
+    return ""
+}
+console.log(printId(123123))
+console.log(printId("laxsr123"))
+
+// ====== 批改记录 ======
+// ✅ 通过
+// 📝 发现的问题：
+//   1. showStatus 和 printId 用了 return 而非直接 console.log，功能没问题但题目要求的是"输出"
+//      不过 return + 外面 console.log 其实更好，函数职责更单一（返回数据 vs 打印），这是好习惯
+//   2. 最后的 return "" 是防御性代码，TS 其实可以通过 never 类型让编译器帮你检查是否覆盖了所有分支
+// 🔑 知识点：type 别名、联合类型 |、字面量类型、typeof 类型收窄
 
 
 
@@ -106,3 +140,48 @@ type Status = "success" | "error" | "loading"
 
 // 👇 在下面写你的代码
 
+interface Animal {
+    name: string
+    age: number
+}
+
+interface Dog extends Animal {
+    breed: string
+}
+
+type Cat = Animal & { indoor: boolean }
+
+
+const dog: Dog = {
+    name: "Dan",
+    age: 6,
+    breed: "labubu"
+}
+
+const cat: Cat = {
+    name: "hau",
+    age: 3,
+    indoor: true 
+}
+
+console.log(dog)
+console.log(cat)
+
+// 主要区别：interface可以被扩展extends
+
+// ====== 批改记录 ======
+// ✅ 通过
+// 📝 发现的问题：
+//   1. console.log 直接输出对象，题目要求按格式输出（"狗: Dan, 年龄: 6, 品种: labubu"）
+//      老问题了，记得用模板字符串 `狗: ${dog.name}, 年龄: ${dog.age}, 品种: ${dog.breed}`
+//   2. 总结不够完整，补充：
+//      - interface 可以 extends 继承，也可以被重复声明（自动合并）
+//      - type 不能重复声明，但可以用 & 交叉类型组合，还能定义联合类型、字面量类型
+//      - 定义对象结构时两者都行，需要联合类型时只能用 type
+// 🔑 知识点：interface extends 继承、type & 交叉类型、两者区别
+//
+// ====== 补充笔记 ======
+// 📌 interface 重复声明：同名 interface 写两次会自动合并属性，type 不行会报错。
+//    常用于扩展第三方库的类型（如给 Window 加自定义属性）。
+// 📌 & 交叉类型：把多个类型"叠加"，所有属性都要有。
+//    type Cat = Animal & { indoor: boolean } 等同于 interface Cat extends Animal { indoor: boolean }
