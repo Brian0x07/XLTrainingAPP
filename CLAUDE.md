@@ -20,6 +20,7 @@
    - 发现的问题
    - 涉及的知识点
 6. Claude 更新本文件中的**进度清单**
+7. 用户在做题过程中提出的问题，Claude 在批改记录下方以**补充笔记**形式写入文件，方便复习
 
 ## 批改记录格式
 
@@ -174,9 +175,21 @@ swift apple-ecosystem/swift/beginner/<文件名>.swift
 - [x] `03-interface-type.ts` 第 1 题：定义接口 ⭐
 - [x] `03-interface-type.ts` 第 2 题：type 别名与联合类型 ⭐⭐
 - [x] `03-interface-type.ts` 第 3 题：interface vs type ⭐⭐
+- [x] `04-control-flow.ts` 第 1 题：if/else + switch ⭐
+- [x] `04-control-flow.ts` 第 2 题：for 循环 ⭐
+- [x] `04-control-flow.ts` 第 3 题：while + break/continue ⭐⭐
 
 #### 中级 intermediate
-（待初级完成后根据答题情况生成）
+
+- [x] `01-narrowing.ts` 第 1 题：typeof 收窄 ⭐
+- [x] `01-narrowing.ts` 第 2 题：in 收窄 ⭐⭐
+- [x] `01-narrowing.ts` 第 3 题：判别式联合 ⭐⭐⭐
+- [x] `02-generics.ts` 第 1 题：泛型函数基础 ⭐⭐
+- [x] `02-generics.ts` 第 2 题：泛型接口 ⭐⭐
+- [x] `02-generics.ts` 第 3 题：泛型约束 ⭐⭐⭐
+- [x] `03-class.ts` 第 1 题：class 基础 ⭐⭐
+- [ ] `03-class.ts` 第 2 题：继承 extends ⭐⭐ ← 当前
+- [ ] `03-class.ts` 第 3 题：implements 接口 ⭐⭐⭐
 
 #### 高级 advanced
 （待中级完成后根据答题情况生成）
