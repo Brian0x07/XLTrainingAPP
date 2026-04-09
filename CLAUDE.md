@@ -188,11 +188,14 @@ swift apple-ecosystem/swift/beginner/<文件名>.swift
 - [x] `02-generics.ts` 第 2 题：泛型接口 ⭐⭐
 - [x] `02-generics.ts` 第 3 题：泛型约束 ⭐⭐⭐
 - [x] `03-class.ts` 第 1 题：class 基础 ⭐⭐
-- [ ] `03-class.ts` 第 2 题：继承 extends ⭐⭐ ← 当前
-- [ ] `03-class.ts` 第 3 题：implements 接口 ⭐⭐⭐
+- [x] `03-class.ts` 第 2 题：继承 extends ⭐⭐
+- [x] `03-class.ts` 第 3 题：implements 接口 ⭐⭐⭐
 
 #### 高级 advanced
-（待中级完成后根据答题情况生成）
+
+- [x] `01-utility-types.ts` 第 1 题：Partial 与 Required ⭐⭐
+- [x] `01-utility-types.ts` 第 2 题：Pick 与 Omit ⭐⭐
+- [ ] `01-utility-types.ts` 第 3 题：Record 与综合运用 ⭐⭐⭐ ← 当前
 
 ### JS 生态 — JavaScript
 （待开始）

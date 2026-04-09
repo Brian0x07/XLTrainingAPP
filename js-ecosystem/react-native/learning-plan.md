@@ -60,6 +60,15 @@
 
 ## 二、状态管理（高优先）
 
+### 2.0 React 内置状态机制（前置基础）
+
+- **useState / useReducer** — 组件内状态
+- **Context API** — 跨组件共享状态（避免 prop drilling）
+- **对比 Event Bus** — 为什么 React 中优先用 state/context 而不是事件总线
+- 练习：用 Context 实现主题切换、用户登录状态共享
+
+> 这是学习第三方状态管理库之前的必备基础。
+
 ### 2.1 客户端状态
 
 | 方案 | 特点 |

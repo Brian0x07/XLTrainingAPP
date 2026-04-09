@@ -122,6 +122,88 @@ console.log(`最终: ${account.toString()}`)
 // 👇 在下面写你的代码
 
 
+class Vehicle {
+    brand: string
+    speed: number = 0
+    constructor(brand: string) {
+        this.brand = brand
+    }
+
+    accelerate(amount: number): void {
+        this.speed += amount
+    }
+
+    brake(amount: number): void {
+        if (amount > this.speed) {
+            amount = this.speed
+        }
+        this.speed -= amount
+    }
+
+    status(): string {
+        return `品牌: ${this.brand}, 速度: ${this.speed} km/h`
+    } 
+}
+
+class ElectricCar extends Vehicle {
+    private battery: number = 100
+
+    constructor(brand: string) {
+        super(brand)
+    }
+
+    accelerate(amount: number): void {
+        if (this.battery <=0) { return }
+
+        this.battery -= 5
+        if (this.battery < 0) {
+            this.battery = 0
+        }
+        this.speed += amount
+    }
+
+    charge(): void {
+        this.battery = 100
+    }
+
+    status(): string {
+        const str = super.status()
+        return str + `, 电量: ${this.battery}%`
+    }
+}
+
+const tesla = new ElectricCar("Tesla")
+tesla.accelerate(30)
+console.log(tesla.status())
+tesla.accelerate(50)
+console.log(tesla.status())
+tesla.accelerate(20)
+console.log(tesla.status())
+tesla.brake(40)
+console.log(`刹车后: ${tesla.status()}`)
+tesla.charge()
+console.log(`充电后: ${tesla.status()}`)
+
+// ====== 批改记录 ======
+// ✅ 通过
+// 📝 发现的问题：
+//   1. accelerate 条件写反：if (this.battery > 4) { return } → 应为 if (this.battery <= 0) { return }
+//      电量充足时反而 return 了，逻辑反转
+//   2. status() 拼接缺少 ", " 分隔符，输出粘在一起（已修复）
+// 👍 亮点：
+//   - 继承结构正确，super(brand) 调用没漏
+//   - super.status() 复用父类方法，避免重复代码
+//   - brake 里做了速度不能低于 0 的保护
+//   - battery 正确使用 private 封装
+// 🔑 知识点：extends 继承、super() 调用父类构造函数、super.方法名() 调用父类方法、方法重写 (override)
+
+
+
+
+
+
+
+
 
 
 // ====== 第 3 题：implements 接口 ======
@@ -155,4 +237,67 @@ console.log(`最终: ${account.toString()}`)
 
 // 👇 在下面写你的代码
 
+interface Loggable {
+    log(): string
+}
 
+interface Serializable {
+    serialize(): string
+}
+
+class TodoItem implements Loggable, Serializable {
+    id: number
+    title: string
+    completed: boolean = false
+
+    constructor(id: number, title: string) {
+        this.id = id
+        this.title = title
+    }
+
+    toggle(): void {
+        this.completed = !this.completed
+    }
+
+    log(): string {
+        const x = this.completed ? "x" : " "
+        return `[${x}] ${this.title}`
+    }
+
+    serialize(): string {
+        return JSON.stringify({ id: this.id, title: this.title, completed: this.completed })
+    }
+}
+
+const todos: TodoItem[] = [
+    new TodoItem(1, "学 TypeScript"),
+    new TodoItem(2, "学 React Native"),
+]
+todos[0]!.toggle()
+
+for (const todo of todos) {
+    console.log(todo.log())
+    console.log(todo.serialize())
+}
+
+// ====== 批改记录 ======
+// ✅ 通过
+// 📝 发现的问题：
+//   1. toggle 拼写错误：toogle → toggle（常见拼写陷阱）
+//   2. serialize 中用模板字符串 `${this.id}` 导致 number/boolean 被转为 string
+//      JSON 中类型很重要：id 应该是 1 不是 "1"，completed 应该是 true 不是 "true"
+//      正确做法：直接传属性 { id: this.id, title: this.title, completed: this.completed }
+// 👍 亮点：
+//   - implements 双接口写法正确
+//   - log() 用三元表达式判断完成状态，简洁
+//   - completed 默认值 false 直接在属性声明处赋值，比在 constructor 里赋值更简洁
+// 🔑 知识点：implements 实现接口、多接口实现、JSON.stringify、模板字符串的隐式类型转换
+//
+// ====== 补充笔记 ======
+// 📌 模板字符串 `${}` 会把任何值 toString()
+//    `${123}` → "123"，`${true}` → "true"
+//    在 JSON.stringify 中直接传原始值，让它自动处理类型
+// 📌 implements vs extends：
+//    extends — 继承一个类（只能继承一个）
+//    implements — 实现接口（可以实现多个，用逗号分隔）
+//    接口只定义"要有什么"，不提供实现；父类既定义又实现
