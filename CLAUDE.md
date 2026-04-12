@@ -26,7 +26,8 @@
 
 当前练习进度：
 - 当前主线：**JS 生态 → TypeScript**
-- 当前题目：`js-ecosystem/ts/advanced/01-utility-types.ts` 第 3 题
+- 最近完成：`js-ecosystem/ts/advanced/01-utility-types.ts` 第 3 题
+- 下一步：进入 TypeScript 高级下一组练习
 
 ## 当前入口
 
@@ -276,7 +277,7 @@ swift apple-ecosystem/swift/beginner/<文件名>.swift
 
 - [x] `01-utility-types.ts` 第 1 题：Partial 与 Required ⭐⭐
 - [x] `01-utility-types.ts` 第 2 题：Pick 与 Omit ⭐⭐
-- [ ] `01-utility-types.ts` 第 3 题：Record 与综合运用 ⭐⭐⭐ ← 当前
+- [x] `01-utility-types.ts` 第 3 题：Record 与综合运用 ⭐⭐⭐
 
 ### JS 生态 — JavaScript
 （待开始）

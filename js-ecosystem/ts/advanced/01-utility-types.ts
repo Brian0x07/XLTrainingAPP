@@ -131,10 +131,34 @@ console.log(toProductCard(product))
 // ====== 第 3 题：Record 与综合运用 ======
 // 难度: ⭐⭐⭐
 // 考察: Record<K, V> 定义键值对类型，结合其他工具类型
-//
+// Record<键的类型, 值的类型>
+
 // 背景：
 // Record<string, number> 等于 { [key: string]: number }
 // Record<"a" | "b", boolean> 等于 { a: boolean; b: boolean }
+/*
+    对象索引签名的意思是：
+
+    > 用中括号声明：这个对象可以用某种类型的 key 来访问，并且访问出来的 value 是某种类型。
+
+    格式是：
+
+    {
+        [key: KeyType]: ValueType
+    }
+
+    比如：
+
+    {
+        [key: string]: number
+    }
+
+    意思是：
+
+    > 这个对象可以用 string 当 key，取出来的值必须是 number。
+*/
+
+
 //
 // 要求：
 // 1. 定义 type Status = "todo" | "in-progress" | "done"
@@ -161,3 +185,64 @@ interface Task {
     title: string
     status: Status
 }
+
+type TaskBoard = Record<Status, Task[]>
+
+
+
+function createBoard(tasks: Task[]): TaskBoard {
+    const board: TaskBoard = {
+        todo: [],
+        "in-progress": [],
+        done: []
+    }
+
+    tasks.forEach(t => board[t.status].push(t))
+    return board
+}
+
+
+function summarize(board: TaskBoard): Record<Status, number> {
+    return { todo: board.todo.length,
+        "in-progress": board["in-progress"].length,
+        done: board.done.length
+    }
+}
+
+const taks1: Task = {
+    id: 1,
+    title: "任务1",
+    status: "todo"
+}
+
+
+const taks2: Task = {
+    id: 2,
+    title: "任务2",
+    status: "in-progress"
+}
+
+
+const taks3: Task = {
+    id: 3,
+    title: "任务3",
+    status: "done"
+}
+
+const tasks = [taks1, taks2, taks3]
+
+const board = createBoard(tasks)
+const sum = summarize(board)
+
+console.log(sum)
+
+// ====== 批改记录 ======
+// ✅ 通过
+// 📝 发现的问题：
+//   1. 变量名 taks1/taks2/taks3 拼写应为 task1/task2/task3，不影响运行，但实际项目里建议改正
+//   2. 第 6 步如果严格按“输出结果”理解，可以同时输出 board 和 sum；当前只输出 sum，但 createBoard 已被正确调用
+// 👍 亮点：
+//   - TaskBoard = Record<Status, Task[]> 定义正确
+//   - createBoard 里 board[t.status].push(t) 用得很好，真正用到了联合类型 key + Record 的组合
+//   - summarize 返回 Record<Status, number>，并正确处理了 "in-progress" 这种带连字符的 key
+// 🔑 知识点：Record<K, V>、对象索引访问、联合类型作为 key、数组分组统计
