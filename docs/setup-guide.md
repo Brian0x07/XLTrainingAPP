@@ -80,12 +80,13 @@ npx tsc --noEmit
 
 ---
 
-## 二、Apple 生态环境（Swift / SwiftUI / UIKit / AppKit）
+## 二、Apple 生态环境（Swift / SwiftUI / UIKit / SwiftData / AppKit）
 
 ### 前提条件
 
 - macOS 系统
 - 已安装 Xcode（提供 Swift 编译器和 iOS SDK）
+- SwiftData 练习建议使用 Xcode 15 或更高版本，并将最低部署目标设为 iOS 17 或更高版本
 
 ### 验证安装
 
@@ -104,7 +105,7 @@ xcode-select -p
 swift apple-ecosystem/swift/beginner/xxx.swift
 ```
 
-> SwiftUI / UIKit / AppKit 练习需要 Xcode 项目环境，届时单独创建。
+> SwiftUI / UIKit / SwiftData / AppKit 练习需要 Xcode 项目环境，届时单独创建。
 
 ---
 
@@ -137,7 +138,7 @@ npm install graphql
 ```
 TrainingAPP/
 ├── js-ecosystem/            # JS / TS / Node.js / React / RN / GraphQL
-├── apple-ecosystem/         # Swift / SwiftUI / UIKit / AppKit / iOS SDK / 架构
+├── apple-ecosystem/         # Swift / SwiftUI / UIKit / SwiftData / AppKit / iOS SDK / 架构
 ├── general/                 # API 集成 / A/B 测试 / 监控
 ├── docs/                    # 文档
 ├── node_modules/            # 依赖包（自动生成，已 gitignore）

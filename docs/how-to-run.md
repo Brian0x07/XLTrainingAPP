@@ -26,9 +26,11 @@ swift apple-ecosystem/swift/beginner/xxx.swift
 
 macOS 自带 Swift 编译器（需安装 Xcode 或 Xcode Command Line Tools）。
 
-### SwiftUI / UIKit / AppKit
+### SwiftUI / UIKit / SwiftData / AppKit
 
 这些框架需要 Xcode 项目环境，无法用单文件运行。练习时会在对应目录下创建 Xcode 项目，用 Xcode 打开运行。
+
+SwiftData 练习建议使用 Xcode 15 或更高版本，并将最低部署目标设为 iOS 17 或更高版本。
 
 ### React
 

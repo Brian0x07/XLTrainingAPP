@@ -12,7 +12,7 @@
 
 项目覆盖三大方向：
 - **JS 生态**：JS → TS → Node.js → React → React Native → GraphQL
-- **Apple 生态**：Swift → SwiftUI → UIKit → AppKit → iOS SDK → 架构模式
+- **Apple 生态**：Swift → SwiftUI → UIKit → SwiftData → AppKit → iOS SDK → 架构模式
 - **通用技能**：API 集成、A/B 测试、监控
 
 ## 当前状态
@@ -22,12 +22,13 @@
 - 仓库的多技术栈目录框架已经建好
 - 当前真正已经落地并可直接练习的主线是 **TypeScript**
 - `React Native` 目前已有学习计划文档：`js-ecosystem/react-native/learning-plan.md`
+- `SwiftData` 目前已有学习计划文档：`apple-ecosystem/swiftdata/learning-plan.md`
 - 其他技术栈大多还是目录占位，后续会按学习进度逐步补题和补环境
 
 当前练习进度：
 - 当前主线：**JS 生态 → TypeScript**
-- 最近完成：`js-ecosystem/ts/advanced/01-utility-types.ts` 第 3 题
-- 下一步：进入 TypeScript 高级下一组练习
+- 最近完成：`js-ecosystem/ts/advanced/02-conditional-types.ts` 第 2 题
+- 当前待做：`js-ecosystem/ts/advanced/02-conditional-types.ts` 第 3 题
 
 ## 当前入口
 
@@ -90,7 +91,7 @@
 - `js-ecosystem/`
   - JavaScript、TypeScript、Node.js、React、React Native、GraphQL
 - `apple-ecosystem/`
-  - Swift、SwiftUI、UIKit、AppKit、iOS SDK、架构模式
+  - Swift、SwiftUI、UIKit、SwiftData、AppKit、iOS SDK、架构模式
 - `general/`
   - API 集成、A/B 测试、监控
 - `docs/`
@@ -148,6 +149,11 @@ TrainingAPP/
 │   │   ├── beginner/
 │   │   ├── intermediate/
 │   │   └── advanced/
+│   ├── swiftdata/               # SwiftData（本地持久化与数据建模）
+│   │   ├── beginner/
+│   │   ├── intermediate/
+│   │   ├── advanced/
+│   │   └── learning-plan.md
 │   ├── appkit/                  # AppKit（macOS 桌面 UI）
 │   │   ├── beginner/
 │   │   ├── intermediate/
@@ -231,6 +237,7 @@ swift apple-ecosystem/swift/beginner/<文件名>.swift
 | 技术栈 | 计划文档 |
 |--------|---------|
 | React Native | `js-ecosystem/react-native/learning-plan.md` |
+| SwiftData | `apple-ecosystem/swiftdata/learning-plan.md` |
 
 > 后续其他技术栈的学习计划文档会陆续补充到这里。
 
@@ -238,7 +245,7 @@ swift apple-ecosystem/swift/beginner/<文件名>.swift
 
 对标 iOS Software Engineer II，建议优先级如下：
 
-1. **最高优先**：Swift → SwiftUI → iOS SDK → 架构模式 (MVVM/TCA)
+1. **最高优先**：Swift → SwiftUI → UIKit → SwiftData → iOS SDK → 架构模式 (MVVM/TCA)
 2. **中优先**：TS → Node.js → GraphQL → API 集成
 3. **了解即可**：A/B Testing、监控工具、AppKit
 
@@ -278,6 +285,9 @@ swift apple-ecosystem/swift/beginner/<文件名>.swift
 - [x] `01-utility-types.ts` 第 1 题：Partial 与 Required ⭐⭐
 - [x] `01-utility-types.ts` 第 2 题：Pick 与 Omit ⭐⭐
 - [x] `01-utility-types.ts` 第 3 题：Record 与综合运用 ⭐⭐⭐
+- [x] `02-conditional-types.ts` 第 1 题：条件类型基础 ⭐⭐
+- [x] `02-conditional-types.ts` 第 2 题：infer 提取 Promise 结果 ⭐⭐⭐
+- [ ] `02-conditional-types.ts` 第 3 题：分布式条件类型与联合类型过滤 ⭐⭐⭐
 
 ### JS 生态 — JavaScript
 （待开始）
@@ -301,6 +311,9 @@ swift apple-ecosystem/swift/beginner/<文件名>.swift
 （待开始）
 
 ### Apple 生态 — UIKit
+（待开始）
+
+### Apple 生态 — SwiftData
 （待开始）
 
 ### Apple 生态 — AppKit
