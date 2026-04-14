@@ -27,8 +27,8 @@
 
 当前练习进度：
 - 当前主线：**JS 生态 → TypeScript**
-- 最近完成：`js-ecosystem/ts/advanced/02-conditional-types.ts` 第 2 题
-- 当前待做：`js-ecosystem/ts/advanced/02-conditional-types.ts` 第 3 题
+- 最近完成：`js-ecosystem/ts/advanced/02-conditional-types.ts` 第 3 题
+- 下一步：进入 TypeScript 高级下一组练习
 
 ## 当前入口
 
@@ -287,7 +287,7 @@ swift apple-ecosystem/swift/beginner/<文件名>.swift
 - [x] `01-utility-types.ts` 第 3 题：Record 与综合运用 ⭐⭐⭐
 - [x] `02-conditional-types.ts` 第 1 题：条件类型基础 ⭐⭐
 - [x] `02-conditional-types.ts` 第 2 题：infer 提取 Promise 结果 ⭐⭐⭐
-- [ ] `02-conditional-types.ts` 第 3 题：分布式条件类型与联合类型过滤 ⭐⭐⭐
+- [x] `02-conditional-types.ts` 第 3 题：分布式条件类型与联合类型过滤 ⭐⭐⭐
 
 ### JS 生态 — JavaScript
 （待开始）

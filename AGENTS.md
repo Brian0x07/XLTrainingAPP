@@ -33,8 +33,8 @@
 当前进度：
 
 - 当前主线：JS 生态 -> TypeScript。
-- 最近完成：`js-ecosystem/ts/advanced/02-conditional-types.ts` 第 2 题。
-- 当前待做：`js-ecosystem/ts/advanced/02-conditional-types.ts` 第 3 题。
+- 最近完成：`js-ecosystem/ts/advanced/02-conditional-types.ts` 第 3 题。
+- 默认下一步：进入 TypeScript 高级下一组练习。
 - React Native 已有学习计划：`js-ecosystem/react-native/learning-plan.md`。
 - SwiftData 已有学习计划：`apple-ecosystem/swiftdata/learning-plan.md`。
 - 其他技术栈大多仍是目录占位，后续按学习进度逐步补题和补环境。
@@ -209,7 +209,7 @@ React、React Native、SwiftUI、UIKit、AppKit 等需要项目环境，具体�
 - [x] `01-utility-types.ts` 第 3 题：Record 与综合运用
 - [x] `02-conditional-types.ts` 第 1 题：条件类型基础
 - [x] `02-conditional-types.ts` 第 2 题：infer 提取 Promise 结果
-- [ ] `02-conditional-types.ts` 第 3 题：分布式条件类型与联合类型过滤
+- [x] `02-conditional-types.ts` 第 3 题：分布式条件类型与联合类型过滤
 
 ### 其他方向
 

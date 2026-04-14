@@ -241,3 +241,68 @@ fetchUser().then(printUser)
 // - { type: K } 只检查 type 字段是否匹配，不会要求对象只有 type 一个字段
 
 // 👇 在下面写你的代码
+
+
+type LoadingEvent = { type: "loading" }
+type SuccessEvent = { type: "success", data: string[] }
+type ErrorEvent = { type: "error", message: string }
+
+type AppEvent = LoadingEvent | SuccessEvent | ErrorEvent
+
+type EventOfType<T, K> = T extends { type: K } ? T : never
+
+type SuccessOnly = EventOfType<AppEvent, "success">
+
+function handleSuccess(event: SuccessOnly): string {
+    return `成功返回 ${event.data.length} 条数据`
+}
+
+const sucRes: SuccessEvent = { type: "success", data: ["xiaoming","xiaohong","xiaolan"] }
+
+const errRes: ErrorEvent = { type: "error", message: "system error" }
+
+const res = handleSuccess(sucRes)
+console.log(res)
+
+// const res2 = handleSuccess(errRes)
+
+// ====== 批改记录 ======
+// ✅ 通过
+// 📝 发现的问题：
+//   1. handleSuccess 当前直接写死了 "3 条数据"，更通用的写法可以根据 event.data.length 生成数量
+//   2. errRes 定义后没有使用；作为反例保留可以，但真实项目里未使用变量应删除或放进注释示例
+// 👍 亮点：
+//   - LoadingEvent / SuccessEvent / ErrorEvent 三个对象类型定义正确
+//   - SuccessEvent 里的 type: "success" 正确使用了字符串字面量类型
+//   - EventOfType<T, K> 的条件类型写对了，能从 AppEvent 联合类型中筛出 SuccessEvent
+//   - const res2 = handleSuccess(errRes) 注释掉是对的；取消注释后应该报类型错误，说明筛选生效
+// 🔑 知识点：对象类型、字符串字面量类型、分布式条件类型、never、联合类型过滤
+//
+// ====== 补充笔记 ======
+// type SuccessEvent = { type: "success", data: string[] }
+// 这里等号后面的 { type: "success", data: string[] } 是“对象类型”，不是对象值。
+// 它描述某个对象必须有 type 和 data 两个字段：
+// - type 字段只能是字符串字面量 "success"
+// - data 字段必须是 string[]
+//
+// type: "success" 和前面学过的 let a: true = true 是同一类思想：
+// TypeScript 允许把具体值当成更精确的“字面量类型”。
+// "success" 是 string 里的一个具体值，也可以作为类型约束。
+//
+// EventOfType<T, K> 可以读成：
+// 如果 T 这个类型有一个 type 字段，并且 type 字段的类型是 K，
+// 就保留 T；否则变成 never。
+//
+// type EventOfType<T, K> = T extends { type: K } ? T : never
+//
+// 当 T 是联合类型 AppEvent = LoadingEvent | SuccessEvent | ErrorEvent 时，
+// 条件类型会自动拆开逐项判断：
+// LoadingEvent extends { type: "success" } ? LoadingEvent : never -> never
+// SuccessEvent extends { type: "success" } ? SuccessEvent : never -> SuccessEvent
+// ErrorEvent extends { type: "success" } ? ErrorEvent : never -> never
+//
+// 最后合并成 never | SuccessEvent | never。
+// never 在联合类型里会消失，所以最终只剩 SuccessEvent。
+//
+// never 是“不可能存在的类型”。在类型过滤里，它常用来表示“这一项不要”。
+// 它也常用于永不返回的函数和 switch 穷尽检查。
