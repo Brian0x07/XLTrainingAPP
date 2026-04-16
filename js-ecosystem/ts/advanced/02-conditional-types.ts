@@ -269,12 +269,12 @@ console.log(res)
 // ====== 批改记录 ======
 // ✅ 通过
 // 📝 发现的问题：
-//   1. handleSuccess 当前直接写死了 "3 条数据"，更通用的写法可以根据 event.data.length 生成数量
-//   2. errRes 定义后没有使用；作为反例保留可以，但真实项目里未使用变量应删除或放进注释示例
+//   1. errRes 定义后没有使用；作为反例保留可以，但真实项目里未使用变量应删除或放进注释示例
 // 👍 亮点：
 //   - LoadingEvent / SuccessEvent / ErrorEvent 三个对象类型定义正确
 //   - SuccessEvent 里的 type: "success" 正确使用了字符串字面量类型
 //   - EventOfType<T, K> 的条件类型写对了，能从 AppEvent 联合类型中筛出 SuccessEvent
+//   - handleSuccess 使用 event.data.length 生成数量，比写死 "3 条数据" 更通用
 //   - const res2 = handleSuccess(errRes) 注释掉是对的；取消注释后应该报类型错误，说明筛选生效
 // 🔑 知识点：对象类型、字符串字面量类型、分布式条件类型、never、联合类型过滤
 //

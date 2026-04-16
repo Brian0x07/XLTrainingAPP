@@ -27,8 +27,8 @@
 
 当前练习进度：
 - 当前主线：**JS 生态 → TypeScript**
-- 最近完成：`js-ecosystem/ts/advanced/02-conditional-types.ts` 第 3 题
-- 下一步：进入 TypeScript 高级下一组练习
+- 最近完成：`js-ecosystem/ts/advanced/04-api-response-modeling.ts` 第 3 题
+- 当前待做：`js-ecosystem/ts/advanced/05-real-world-public-apis.ts` 第 1 题
 
 ## 当前入口
 
@@ -288,6 +288,16 @@ swift apple-ecosystem/swift/beginner/<文件名>.swift
 - [x] `02-conditional-types.ts` 第 1 题：条件类型基础 ⭐⭐
 - [x] `02-conditional-types.ts` 第 2 题：infer 提取 Promise 结果 ⭐⭐⭐
 - [x] `02-conditional-types.ts` 第 3 题：分布式条件类型与联合类型过滤 ⭐⭐⭐
+- [x] `03-keyof-mapped-types.ts` 第 1 题：keyof 与安全取值 ⭐⭐
+- [x] `03-keyof-mapped-types.ts` 第 2 题：映射类型生成表单错误 ⭐⭐⭐
+- [x] `03-keyof-mapped-types.ts` 第 3 题：key remapping 生成事件处理器 ⭐⭐⭐⭐
+- [x] `04-api-response-modeling.ts` 第 1 题：API 请求结果建模 ⭐⭐⭐
+- [x] `04-api-response-modeling.ts` 第 2 题：列表数据归一化 ⭐⭐⭐
+- [x] `04-api-response-modeling.ts` 第 3 题：安全的 Patch Payload ⭐⭐⭐⭐
+- [ ] `05-real-world-public-apis.ts` 第 1 题：Open-Meteo 天气 API ⭐⭐⭐⭐
+- [ ] `05-real-world-public-apis.ts` 第 2 题：Open Library 图书搜索 API ⭐⭐⭐⭐
+- [ ] `05-real-world-public-apis.ts` 第 3 题：Hacker News 官方 API ⭐⭐⭐⭐⭐
+- [ ] `05-real-world-public-apis.ts` 第 4 题：REST Countries 国家信息 API ⭐⭐⭐⭐
 
 ### JS 生态 — JavaScript
 （待开始）
