@@ -24,6 +24,68 @@ interface ApiError {
 
 type ApiResponse<T> = { ok: true; data: T } | { ok: false; error: ApiError }
 
+async function fetchJson<T>(url: string): Promise<ApiResponse<T>> {
+    try {
+        const response = await fetch(url)
+
+        if (!response.ok) {
+            return {
+                ok: false,
+                error: {
+                    code: String(response.status),
+                    message: response.statusText
+                }
+            }
+        }
+
+        const data = await response.json() as T
+        return {
+            ok: true,
+            data
+        }
+    } catch (error) {
+        return {
+            ok: false,
+            error: {
+                code: "NETWORK_ERROR",
+                message: String(error)
+            }
+        }
+    }
+}
+
+function previewJson<T>(response: ApiResponse<T>): void {
+    if (response.ok) {
+        console.log(JSON.stringify(response.data, null, 2))
+    } else {
+        console.log(`请求失败 ${response.error.code}: ${response.error.message}`)
+    }
+}
+
+// 调试真实 API 原始数据时，可以临时取消下面的注释。
+// 看完原始 JSON 后，再回到具体题目里定义 RawXxx 类型和转换函数。
+//
+async function previewOpenMeteoRaw(url: string): Promise<void> {
+    const response = await fetchJson<unknown>(url)
+    previewJson(response)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // ====== 第 1 题：Open-Meteo 天气 API ======
 // 难度: ⭐⭐⭐⭐
@@ -74,6 +136,110 @@ type ApiResponse<T> = { ok: true; data: T } | { ok: false; error: ApiError }
 // - 可以用 map，也可以用 for 循环
 
 // 👇 在下面写你的代码
+
+// const url = "https://api.open-meteo.com/v1/forecast?latitude=31.23&longitude=121.47&hourly=temperature_2m&forecast_days=1&timezone=Asia%2FShanghai"
+// const data = previewOpenMeteoRaw(url)
+// console.log(data)
+
+interface RawOpenMeteoResponse {
+    hourly: { time: string[]; temperature_2m: number[] }
+}
+
+interface WeatherPoint {
+    time: string
+    temperature: number
+}
+
+function toWeatherPoints(raw: RawOpenMeteoResponse): WeatherPoint[] {
+    const timeArr: string[] = raw.hourly.time
+    const tempArr: number[] = raw.hourly.temperature_2m
+
+    const minLength = Math.min(timeArr.length, tempArr.length)
+
+    const weatherPoints: WeatherPoint[] = []
+    for (let index = 0; index < minLength; index++) {
+        const time = timeArr[index]
+        const temperature = tempArr[index]
+
+        if (time === undefined || temperature === undefined) {
+            continue
+        }
+
+        const element: WeatherPoint = {
+            time,
+            temperature
+        }
+        weatherPoints.push(element)
+    }
+    return weatherPoints
+}
+
+
+async function fetchShanghaiWeather(): Promise<ApiResponse<WeatherPoint[]>> {
+    const url = "https://api.open-meteo.com/v1/forecast?latitude=31.23&longitude=121.47&hourly=temperature_2m&forecast_days=1&timezone=Asia%2FShanghai"
+
+    const response = await fetchJson<RawOpenMeteoResponse>(url)
+
+    if (!response.ok) {
+        return response
+    }
+
+    const arr = toWeatherPoints(response.data)
+    return { ok: true, data: arr }
+}
+
+
+function printWeather(response: ApiResponse<WeatherPoint[]>): void {
+    if (!response.ok) {
+        console.log(`天气请求失败 ${response.error.code}: ${response.error.message}`)
+        return
+    }
+
+    for (const point of response.data.slice(0, 3)) {
+        console.log(`${point.time}: ${point.temperature}°C`)
+    }
+}
+
+async function runWeatherDemo(): Promise<void> {
+    const res = await fetchShanghaiWeather()
+    printWeather(res)
+}
+
+runWeatherDemo()
+
+// ====== 批改记录 ======
+// ✅ 通过
+// 📝 发现的问题：
+//   1. 当前运行结果进入了 NETWORK_ERROR 分支，输出 "TypeError: fetch failed"；这是当前环境网络请求失败，不是 TypeScript 编译问题
+//   2. printWeather 成功分支现在直接输出前三个对象数组，符合“前 3 个时间点和温度”的核心要求；后续可以改成逐行格式化输出，读起来更像业务日志
+// 👍 亮点：
+//   - RawOpenMeteoResponse 正确描述了 hourly.time 和 hourly.temperature_2m 两个平行数组
+//   - toWeatherPoints 正确把平行数组转换成 WeatherPoint[]
+//   - 在 noUncheckedIndexedAccess 开启时，能判断 undefined 后再组装 WeatherPoint，类型安全
+//   - fetchJson<RawOpenMeteoResponse>(url) 使用正确，解决了 unknown 不能直接当 RawOpenMeteoResponse 的问题
+//   - fetchShanghaiWeather 正确把外部 Raw 数据转换成内部 WeatherPoint[] 后包装成 ApiResponse
+// 🔑 知识点：真实 API 建模、unknown、泛型 fetchJson<T>、数组索引安全、slice(0, 3)、错误包装
+//
+// ====== 补充笔记 ======
+// fetchJson<T>(url) 是一个通用请求函数。
+// 调用时要写明这次期望的 JSON 类型：
+// fetchJson<RawOpenMeteoResponse>(url)
+//
+// 如果不写泛型参数，TypeScript 无法知道 response.data 的具体结构，
+// response.data 会被当成 unknown，不能直接赋值给 RawOpenMeteoResponse。
+//
+// unknown 是安全版的“不知道类型”：
+// - 任何值都可以赋给 unknown
+// - 但 unknown 不能直接访问属性，也不能直接当作具体类型使用
+// - 必须先做类型判断，或者在真实 JSON 场景里显式指定/断言类型
+//
+// 本题里对 timeArr[index] 和 tempArr[index] 做 undefined 判断是必要的。
+// 因为项目开启了 noUncheckedIndexedAccess，数组索引访问结果会是 T | undefined。
+//
+// slice(0, 3) 可以快速截取数组前三项。
+// 如果数组不足 3 项，也不会报错，只会返回已有项。
+
+
 
 
 

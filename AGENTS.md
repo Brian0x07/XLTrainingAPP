@@ -33,8 +33,8 @@
 当前进度：
 
 - 当前主线：JS 生态 -> TypeScript。
-- 最近完成：`js-ecosystem/ts/advanced/04-api-response-modeling.ts` 第 3 题。
-- 当前待做：`js-ecosystem/ts/advanced/05-real-world-public-apis.ts` 第 1 题。
+- 最近完成：`js-ecosystem/ts/advanced/05-real-world-public-apis.ts` 第 1 题。
+- 当前待做：`js-ecosystem/ts/advanced/05-real-world-public-apis.ts` 第 2 题。
 - React Native 已有学习计划：`js-ecosystem/react-native/learning-plan.md`。
 - SwiftData 已有学习计划：`apple-ecosystem/swiftdata/learning-plan.md`。
 - 其他技术栈大多仍是目录占位，后续按学习进度逐步补题和补环境。
@@ -216,7 +216,7 @@ React、React Native、SwiftUI、UIKit、AppKit 等需要项目环境，具体�
 - [x] `04-api-response-modeling.ts` 第 1 题：API 请求结果建模
 - [x] `04-api-response-modeling.ts` 第 2 题：列表数据归一化
 - [x] `04-api-response-modeling.ts` 第 3 题：安全的 Patch Payload
-- [ ] `05-real-world-public-apis.ts` 第 1 题：Open-Meteo 天气 API
+- [x] `05-real-world-public-apis.ts` 第 1 题：Open-Meteo 天气 API
 - [ ] `05-real-world-public-apis.ts` 第 2 题：Open Library 图书搜索 API
 - [ ] `05-real-world-public-apis.ts` 第 3 题：Hacker News 官方 API
 - [ ] `05-real-world-public-apis.ts` 第 4 题：REST Countries 国家信息 API
