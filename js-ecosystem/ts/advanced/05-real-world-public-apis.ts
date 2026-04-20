@@ -621,3 +621,90 @@ runHackerNewsDemo()
 // - 可选字段建议用 ?. 和 ?? 处理
 
 // 👇 在下面写你的代码
+
+
+type RawCountry = {
+    name: {
+        common: string,
+        official?: string,
+    }
+    capital?: string[]
+    currencies?: Record<string, {
+        name: string,
+        symbol?: string
+    }>
+    languages?: Record<string, string>
+    population: number
+    region: string
+}
+
+type CountrySummary = {
+    name: string
+    capital: string | null
+    region: string
+    population: number
+    languages: string[]
+    currencyNames: string[]
+}
+
+function toCountrySummary(raw: RawCountry): CountrySummary {
+    const summary: CountrySummary = {
+        name: raw.name.common,
+        capital: raw.capital?.[0] ?? null,
+        region: raw.region,
+        population: raw.population,
+        languages: Object.values(raw.languages ?? {}),
+        currencyNames: Object.values(raw.currencies ?? {}).map(currency => currency.name)
+    }
+    return summary
+}
+
+
+async function fetchCountry(name: string): Promise<ApiResponse<CountrySummary[]>> {
+    const encodeName = encodeURIComponent(name)
+    const url = `https://restcountries.com/v3.1/name/${encodeName}?fields=name,capital,currencies,languages,population,region`
+    
+    const response = await fetchJson<RawCountry[]>(url)
+    
+    if (!response.ok) {
+        return {ok: false, error: response.error}
+    }
+
+    // const countrySummary = response.data.map(rawCountry => toCountrySummary(rawCountry))
+    const countrySummary = response.data.map(toCountrySummary)
+    return { ok: true, data: countrySummary }
+}
+
+function printCountries(response: ApiResponse<CountrySummary[]>): void {
+    if (!response.ok) {
+        console.log(response.error)
+        return
+    }
+
+    response.data.map(country => {
+        console.log(`国家：${country.name}, 地区：${country.region}, 首都：${country.capital}, 人口：${country.population}, 语言：${country.languages}`)
+    })
+}
+
+
+async function runCountryDemo(): Promise<void> {
+    const respose = await fetchCountry("China")
+    printCountries(respose)
+}
+
+runCountryDemo()
+
+// ====== 批改记录 ======
+// ✅ 通过
+// 📝 发现的问题：
+//   1. printCountries 里使用 map 做输出副作用，能运行，但语义上 for...of 或 forEach 更合适
+//   2. 失败分支现在直接 console.log(response.error)，可以继续优化成和前几题一致的格式化错误输出
+//   3. 当前文件同时调用了四个 demo，真实网络请求完成顺序不固定，所以输出顺序可能每次不同
+// 👍 亮点：
+//   - RawCountry 正确建模了 name、capital、currencies、languages、population、region 等 REST Countries 原始字段
+//   - CountrySummary 正确把深层结构压平成 App 内部更稳定的摘要类型
+//   - capital 使用 raw.capital?.[0] ?? null，正确处理了首都数组和缺失情况
+//   - languages 使用 Object.values(raw.languages ?? {})，正确把语言对象转换成字符串数组
+//   - currencyNames 使用 Object.values(raw.currencies ?? {}).map(...)，正确提取货币名称列表
+//   - fetchCountry 正确使用 fetchJson<RawCountry[]>，并用 map(toCountrySummary) 转换数组结果
+// 🔑 知识点：深层对象建模、可选链、nullish coalescing、Object.values、数组 map 转换、外部 Raw 数据压平

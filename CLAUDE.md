@@ -27,8 +27,8 @@
 
 当前练习进度：
 - 当前主线：**JS 生态 → TypeScript**
-- 最近完成：`js-ecosystem/ts/advanced/05-real-world-public-apis.ts` 第 3 题
-- 当前待做：`js-ecosystem/ts/advanced/05-real-world-public-apis.ts` 第 4 题
+- 最近完成：`js-ecosystem/ts/advanced/05-real-world-public-apis.ts` 第 4 题
+- 当前待做：TypeScript 下一阶段复盘或新专题
 
 ## 当前入口
 
@@ -297,7 +297,7 @@ swift apple-ecosystem/swift/beginner/<文件名>.swift
 - [x] `05-real-world-public-apis.ts` 第 1 题：Open-Meteo 天气 API ⭐⭐⭐⭐
 - [x] `05-real-world-public-apis.ts` 第 2 题：Open Library 图书搜索 API ⭐⭐⭐⭐
 - [x] `05-real-world-public-apis.ts` 第 3 题：Hacker News 官方 API ⭐⭐⭐⭐⭐
-- [ ] `05-real-world-public-apis.ts` 第 4 题：REST Countries 国家信息 API ⭐⭐⭐⭐
+- [x] `05-real-world-public-apis.ts` 第 4 题：REST Countries 国家信息 API ⭐⭐⭐⭐
 
 ### JS 生态 — JavaScript
 （待开始）
