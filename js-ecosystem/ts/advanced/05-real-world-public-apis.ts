@@ -366,7 +366,7 @@ function printBooks(response: ApiResponse<BookCard[]>): void {
     for (const book of response.data) {
         const authors = book.authors.length === 0 ? "未知作者" : book.authors.join(", ")
         const year = book.firstPublishYear ?? "未知年份"
-        console.log(`${book.title} - ${authors} - ${year}`)
+        console.log(`标题：${book.title}，作者：${authors}，首版年份：${year}`)
     }
 }
 
@@ -467,21 +467,103 @@ runBookDemo()
 
 // 👇 在下面写你的代码
 
+type RawHackerNewsItem = {
+    id: number, 
+    type: "story" | "job" | "comment" | "poll" | "pollopt",
+    title?: string,
+    score?: number,
+    url?: string,
+    by?: string
+}
+
+type StoryCard = {
+    id: number,
+    title: string,
+    url: string | null,
+    score: number,
+    by: string
+}
+
+type RawHackerNewsStory = RawHackerNewsItem & {
+    type: "story"
+    title: string
+}
+
+function isRawStoryItem(item: RawHackerNewsItem | null ): item is RawHackerNewsStory {
+    return item !== null && item.type === "story" && item.title !== undefined
+}
+
+function toStoryCard(item: RawHackerNewsStory): StoryCard {
+    const card: StoryCard = {
+        id: item.id,
+        title: item.title,
+        url: item.url ?? null,
+        score: item.score ?? 0,
+        by: item.by ?? "unknown"
+    }
+    return card
+}
+
+async function fetchTopStories(limit: number): Promise<ApiResponse<StoryCard[]>> {
+    const response = await fetchJson<number []>("https://hacker-news.firebaseio.com/v0/topstories.json")
+    if (!response.ok) {
+        return { 
+            ok: false, 
+            error: response.error 
+        }
+    }
+    const ids = response.data.slice(0, limit)
+
+    const itemResponses = await Promise.all(
+        ids.map(id => {
+            const url = `https://hacker-news.firebaseio.com/v0/item/${id}.json`
+            return fetchJson<RawHackerNewsItem | null>(url)
+        })
+    )
+
+    const cardArr = itemResponses
+        .filter((res): res is ApiResponse<RawHackerNewsItem | null> & { ok: true } => res.ok)
+        .map(res => res.data)
+        .filter(isRawStoryItem)
+        .map(toStoryCard)
+
+    return {ok: true, data: cardArr}
+}
+
+function printStories(response: ApiResponse<StoryCard[]>): void {
+    if (!response.ok) {
+        console.log(`新闻请求失败 ${response.error.code}: ${response.error.message}`)
+        return
+    }
+
+    for (const story of response.data) {
+        console.log(`标题：${story.title}，分数：${story.score}，作者：${story.by}`)
+    }
+}
 
 
+async function runHackerNewsDemo(): Promise<void> {
+    const stories = await fetchTopStories(5)
+    printStories(stories)
+}
 
 
+runHackerNewsDemo()
 
 
-
-
-
-
-
-
-
-
-
+// ====== 批改记录 ======
+// ✅ 通过
+// 📝 发现的问题：
+//   1. 当前环境请求 Hacker News 进入 NETWORK_ERROR 分支，输出 "TypeError: fetch failed"；这是网络环境问题，不是 TypeScript 编译问题
+//   2. 单个 item 请求失败时现在会被过滤掉，整体仍返回 ok: true；练习里可以接受，真实项目里可以考虑记录部分失败或提示数据不完整
+// 👍 亮点：
+//   - RawHackerNewsItem 正确表达了 Hacker News item 可能有多种 type，且 title、score、url、by 都可能缺失
+//   - RawHackerNewsStory 用交叉类型把 story 和必填 title 单独建模，方便后续转换
+//   - isRawStoryItem 类型守卫写法正确，能把 RawHackerNewsItem | null 收窄成 RawHackerNewsStory
+//   - toStoryCard 正确把外部可选字段转成内部稳定字段：url -> null，score -> 0，by -> "unknown"
+//   - fetchTopStories 正确使用 slice 截取前 limit 个 id，并用 Promise.all 并发请求 item 详情
+//   - filter + map 链式处理清晰：先保留成功响应，再取 data，再过滤 story，最后转换成 StoryCard
+// 🔑 知识点：Promise.all、类型守卫、交叉类型、可选字段默认值、数组 filter/map 管道、部分失败处理
 
 
 
