@@ -34,7 +34,7 @@
 
 - 当前主线：JS 生态 -> TypeScript。
 - 最近完成：`js-ecosystem/ts/advanced/05-real-world-public-apis.ts` 第 4 题。
-- 当前待做：TypeScript 下一阶段复盘或新专题。
+- 当前待做：`js-ecosystem/ts/advanced/06-review-mini-api-client.ts` 第 1 题。
 - React Native 已有学习计划：`js-ecosystem/react-native/learning-plan.md`。
 - SwiftData 已有学习计划：`apple-ecosystem/swiftdata/learning-plan.md`。
 - 其他技术栈大多仍是目录占位，后续按学习进度逐步补题和补环境。
@@ -220,6 +220,7 @@ React、React Native、SwiftUI、UIKit、AppKit 等需要项目环境，具体�
 - [x] `05-real-world-public-apis.ts` 第 2 题：Open Library 图书搜索 API
 - [x] `05-real-world-public-apis.ts` 第 3 题：Hacker News 官方 API
 - [x] `05-real-world-public-apis.ts` 第 4 题：REST Countries 国家信息 API
+- [ ] `06-review-mini-api-client.ts` 第 1 题：封装 JSONPlaceholder Mini Client
 
 ### 其他方向
 
