@@ -466,3 +466,11 @@ async function runMiniClientDemo(): Promise<void> {
 
 
 runMiniClientDemo()
+
+// ====== 批改记录 ======
+// ✅ 通过
+// 📝 发现的问题：
+//   1. 最终提交版本未发现阻塞性问题；核心函数职责拆分清晰，类型关系正确
+//   2. 已通过 `npx tsc --noEmit --ignoreConfig js-ecosystem/ts/advanced/06-review-mini-api-client.ts` 静态类型检查
+//   3. 真实网络请求链路依赖外部 API，本轮未做联网运行验证
+// 🔑 知识点：ApiResponse 成功/失败分支建模、URLSearchParams、Raw 数据与内部数据分层、类型守卫收窄、列表归一化、id 索引字典

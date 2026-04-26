@@ -28,23 +28,32 @@
 
 ## 当前状态
 
-仓库目前已经建立多技术栈目录框架，但真正已经落地并可直接练习的主线是 TypeScript。
+仓库目前已经建立多技术栈目录框架。
+
+当前已完成一阶段主线是 TypeScript。
+
+接下来按新的训练路径推进：先补 React 最小前置基础，再进入 React Native。
 
 当前进度：
 
-- 当前主线：JS 生态 -> TypeScript。
-- 最近完成：`js-ecosystem/ts/advanced/05-real-world-public-apis.ts` 第 4 题。
-- 当前待做：`js-ecosystem/ts/advanced/06-review-mini-api-client.ts` 第 1 题。
+- 当前主线：JS 生态 -> React（为 React Native 做前置准备）。
+- 最近完成：`js-ecosystem/react/beginner/01-jsx-components.tsx` 第 1 题。
+- 当前待做：React 前置基础第 2 题（待出题）。
+- React 已有学习计划：`js-ecosystem/react/learning-plan.md`。
 - React Native 已有学习计划：`js-ecosystem/react-native/learning-plan.md`。
 - SwiftData 已有学习计划：`apple-ecosystem/swiftdata/learning-plan.md`。
 - 其他技术栈大多仍是目录占位，后续按学习进度逐步补题和补环境。
 
 ## 默认入口
 
-如果用户说“继续做题”“出下一题”“继续训练”等，但没有指定技术栈，默认从 TypeScript 高级练习继续。
+如果用户说“继续做题”“出下一题”“继续训练”等，但没有指定技术栈，默认先从 React 前置基础继续；React 前置完成后再进入 React Native。
 
 常用入口目录：
 
+- `js-ecosystem/react/`
+- `js-ecosystem/react-native/beginner/`
+- `js-ecosystem/react-native/intermediate/`
+- `js-ecosystem/react-native/advanced/`
 - `js-ecosystem/ts/beginner/`
 - `js-ecosystem/ts/intermediate/`
 - `js-ecosystem/ts/advanced/`
@@ -158,6 +167,7 @@ React、React Native、SwiftUI、UIKit、AppKit 等需要项目环境，具体�
 
 | 技术栈 | 计划文档 |
 | --- | --- |
+| React | `js-ecosystem/react/learning-plan.md` |
 | React Native | `js-ecosystem/react-native/learning-plan.md` |
 | SwiftData | `apple-ecosystem/swiftdata/learning-plan.md` |
 
@@ -220,14 +230,26 @@ React、React Native、SwiftUI、UIKit、AppKit 等需要项目环境，具体�
 - [x] `05-real-world-public-apis.ts` 第 2 题：Open Library 图书搜索 API
 - [x] `05-real-world-public-apis.ts` 第 3 题：Hacker News 官方 API
 - [x] `05-real-world-public-apis.ts` 第 4 题：REST Countries 国家信息 API
-- [ ] `06-review-mini-api-client.ts` 第 1 题：封装 JSONPlaceholder Mini Client
+- [x] `06-review-mini-api-client.ts` 第 1 题：封装 JSONPlaceholder Mini Client
+
+### JS 生态 - React
+
+#### beginner
+
+- [x] `01-jsx-components.tsx` 第 1 题：学习状态面板
+
+### JS 生态 - React Native
+
+#### beginner
+
+- [ ] `01-core-components.tsx` 第 1 题：个人资料卡片
 
 ### 其他方向
 
 - JS 生态 - JavaScript：待开始。
 - JS 生态 - Node.js：待开始。
-- JS 生态 - React：待开始。
-- JS 生态 - React Native：待开始。
+- JS 生态 - React：进行中（作为 React Native 前置基础）。
+- JS 生态 - React Native：待开始（待完成 React 前置基础）。
 - JS 生态 - GraphQL：待开始。
 - Apple 生态 - Swift：待开始。
 - Apple 生态 - SwiftUI：待开始。

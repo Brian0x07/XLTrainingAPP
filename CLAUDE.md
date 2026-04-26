@@ -20,26 +20,28 @@
 为避免误解，先说明仓库现状：
 
 - 仓库的多技术栈目录框架已经建好
-- 当前真正已经落地并可直接练习的主线是 **TypeScript**
+- 当前已完成并沉淀较完整的主线是 **TypeScript**，下一阶段切到 **React 前置基础 -> React Native**
+- `React` 目前已有学习计划文档：`js-ecosystem/react/learning-plan.md`
 - `React Native` 目前已有学习计划文档：`js-ecosystem/react-native/learning-plan.md`
 - `SwiftData` 目前已有学习计划文档：`apple-ecosystem/swiftdata/learning-plan.md`
 - 其他技术栈大多还是目录占位，后续会按学习进度逐步补题和补环境
 
 当前练习进度：
-- 当前主线：**JS 生态 → TypeScript**
-- 最近完成：`js-ecosystem/ts/advanced/05-real-world-public-apis.ts` 第 4 题
-- 当前待做：`js-ecosystem/ts/advanced/06-review-mini-api-client.ts` 第 1 题
+- 当前主线：**JS 生态 → React（为 React Native 做前置准备）**
+- 最近完成：`js-ecosystem/react/beginner/01-jsx-components.tsx` 第 1 题
+- 当前待做：React 前置基础第 2 题（待出题）
 
 ## 当前入口
 
 如果现在继续做题，默认从这里开始：
 
-1. 打开当前题目文件并完成作答
+1. 先按 `js-ecosystem/react/learning-plan.md` 补 React 最小前置基础
 2. 运行对应命令查看输出或报错
 3. Claude 批改并在题目下方追加批改记录
 4. Claude 更新本文件中的进度清单
 
 常用入口文件：
+- `js-ecosystem/react/`
 - `js-ecosystem/ts/beginner/`
 - `js-ecosystem/ts/intermediate/`
 - `js-ecosystem/ts/advanced/`
@@ -298,7 +300,7 @@ swift apple-ecosystem/swift/beginner/<文件名>.swift
 - [x] `05-real-world-public-apis.ts` 第 2 题：Open Library 图书搜索 API ⭐⭐⭐⭐
 - [x] `05-real-world-public-apis.ts` 第 3 题：Hacker News 官方 API ⭐⭐⭐⭐⭐
 - [x] `05-real-world-public-apis.ts` 第 4 题：REST Countries 国家信息 API ⭐⭐⭐⭐
-- [ ] `06-review-mini-api-client.ts` 第 1 题：封装 JSONPlaceholder Mini Client ⭐⭐⭐⭐⭐
+- [x] `06-review-mini-api-client.ts` 第 1 题：封装 JSONPlaceholder Mini Client ⭐⭐⭐⭐⭐
 
 ### JS 生态 — JavaScript
 （待开始）
@@ -307,10 +309,14 @@ swift apple-ecosystem/swift/beginner/<文件名>.swift
 （待开始）
 
 ### JS 生态 — React
-（待开始）
+
+#### beginner
+- [x] `01-jsx-components.tsx` 第 1 题：学习状态面板 ⭐
 
 ### JS 生态 — React Native
-（待开始）
+
+#### beginner
+- [ ] `01-core-components.tsx` 第 1 题：个人资料卡片 ⭐
 
 ### JS 生态 — GraphQL
 （待开始）
