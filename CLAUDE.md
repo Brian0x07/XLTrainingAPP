@@ -28,8 +28,8 @@
 
 当前练习进度：
 - 当前主线：**JS 生态 → React（为 React Native 做前置准备）**
-- 最近完成：`js-ecosystem/react/beginner/01-jsx-components.tsx` 第 1 题
-- 当前待做：React 前置基础第 2 题（待出题）
+- 最近完成：`js-ecosystem/react/beginner/02-props-cards.tsx` 第 1 题
+- 当前待做：React 前置基础第 3 题（待出题）
 
 ## 当前入口
 
@@ -312,6 +312,7 @@ swift apple-ecosystem/swift/beginner/<文件名>.swift
 
 #### beginner
 - [x] `01-jsx-components.tsx` 第 1 题：学习状态面板 ⭐
+- [x] `02-props-cards.tsx` 第 1 题：课程卡片列表 ⭐⭐
 
 ### JS 生态 — React Native
 

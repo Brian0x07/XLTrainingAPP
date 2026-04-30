@@ -37,8 +37,8 @@
 当前进度：
 
 - 当前主线：JS 生态 -> React（为 React Native 做前置准备）。
-- 最近完成：`js-ecosystem/react/beginner/01-jsx-components.tsx` 第 1 题。
-- 当前待做：React 前置基础第 2 题（待出题）。
+- 最近完成：`js-ecosystem/react/beginner/02-props-cards.tsx` 第 1 题。
+- 当前待做：React 前置基础第 3 题（待出题）。
 - React 已有学习计划：`js-ecosystem/react/learning-plan.md`。
 - React Native 已有学习计划：`js-ecosystem/react-native/learning-plan.md`。
 - SwiftData 已有学习计划：`apple-ecosystem/swiftdata/learning-plan.md`。
@@ -237,6 +237,7 @@ React、React Native、SwiftUI、UIKit、AppKit 等需要项目环境，具体�
 #### beginner
 
 - [x] `01-jsx-components.tsx` 第 1 题：学习状态面板
+- [x] `02-props-cards.tsx` 第 1 题：课程卡片列表
 
 ### JS 生态 - React Native
 

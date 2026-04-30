@@ -1,5 +1,6 @@
-import LearningStatusPanel from "../beginner/01-jsx-components"
+import PropsCardsExercise from "../beginner/02-props-cards"
 
 export default function App() {
-  return <LearningStatusPanel />
+  // 当前练习环境的根组件：决定浏览器现在显示哪一道题
+  return <PropsCardsExercise />
 }
