@@ -37,8 +37,8 @@
 当前进度：
 
 - 当前主线：JS 生态 -> React（为 React Native 做前置准备）。
-- 最近完成：`js-ecosystem/react/beginner/02-props-cards.tsx` 第 1 题。
-- 当前待做：React 前置基础第 3 题（待出题）。
+- 最近完成：`js-ecosystem/react/beginner/03-use-state.tsx` 第 1 题：学习打卡面板。
+- 当前待做：React beginner 第 4 题：条件渲染（待出题）。
 - React 已有学习计划：`js-ecosystem/react/learning-plan.md`。
 - React Native 已有学习计划：`js-ecosystem/react-native/learning-plan.md`。
 - SwiftData 已有学习计划：`apple-ecosystem/swiftdata/learning-plan.md`。
@@ -47,6 +47,8 @@
 ## 默认入口
 
 如果用户说“继续做题”“出下一题”“继续训练”等，但没有指定技术栈，默认先从 React 前置基础继续；React 前置完成后再进入 React Native。
+
+`general/coding-assessment/` 是按需打开的旁路练习专题，不属于默认主线。不要因为用户说“继续训练”就切过去。只有用户明确提到知名外企笔试、在线测评、算法笔试、coding assessment，或在完成一个主线小题后需要轻量提醒时，才提及它。提醒频率控制在每周 1 到 2 次，每次建议 30 到 45 分钟，不打断 React -> React Native 主线。
 
 常用入口目录：
 
@@ -238,6 +240,7 @@ React、React Native、SwiftUI、UIKit、AppKit 等需要项目环境，具体�
 
 - [x] `01-jsx-components.tsx` 第 1 题：学习状态面板
 - [x] `02-props-cards.tsx` 第 1 题：课程卡片列表
+- [x] `03-use-state.tsx` 第 1 题：学习打卡面板
 
 ### JS 生态 - React Native
 
