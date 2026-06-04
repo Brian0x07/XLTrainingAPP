@@ -28,8 +28,8 @@
 
 当前练习进度：
 - 当前主线：**JS 生态 → React（为 React Native 做前置准备）**
-- 最近完成：`js-ecosystem/react/beginner/04-conditional-rendering.tsx` 第 1 题：学习任务状态面板
-- 当前待做：React beginner 第 5 题：列表渲染（待出题）
+- 最近完成：`js-ecosystem/react/beginner/05-list-rendering.tsx` 第 1 题：课程清单与当前课程详情
+- 当前待做：React Beginner 06：useEffect 第 1 题（待出题）
 
 ## 当前入口
 
@@ -318,6 +318,7 @@ swift apple-ecosystem/swift/beginner/<文件名>.swift
 - [x] `02-props-cards.tsx` 第 1 题：课程卡片列表 ⭐⭐
 - [x] `03-use-state.tsx` 第 1 题：学习打卡面板 ⭐⭐
 - [x] `04-conditional-rendering.tsx` 第 1 题：学习任务状态面板 ⭐⭐
+- [x] `05-list-rendering.tsx` 第 1 题：课程清单与当前课程详情 ⭐⭐
 
 ### JS 生态 — React Native
 

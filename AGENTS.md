@@ -37,8 +37,8 @@
 当前进度：
 
 - 当前主线：JS 生态 -> React（为 React Native 做前置准备）。
-- 最近完成：`js-ecosystem/react/beginner/04-conditional-rendering.tsx` 第 1 题：学习任务状态面板。
-- 当前待做：React beginner 第 5 题：列表渲染（待出题）。
+- 最近完成：`js-ecosystem/react/beginner/05-list-rendering.tsx` 第 1 题：课程清单与当前课程详情。
+- 当前待做：React Beginner 06：useEffect 第 1 题（待出题）。
 - React 已有学习计划：`js-ecosystem/react/learning-plan.md`。
 - React Native 已有学习计划：`js-ecosystem/react-native/learning-plan.md`。
 - SwiftData 已有学习计划：`apple-ecosystem/swiftdata/learning-plan.md`。
@@ -242,6 +242,7 @@ React、React Native、SwiftUI、UIKit、AppKit 等需要项目环境，具体�
 - [x] `02-props-cards.tsx` 第 1 题：课程卡片列表
 - [x] `03-use-state.tsx` 第 1 题：学习打卡面板
 - [x] `04-conditional-rendering.tsx` 第 1 题：学习任务状态面板
+- [x] `05-list-rendering.tsx` 第 1 题：课程清单与当前课程详情
 
 ### JS 生态 - React Native
 
