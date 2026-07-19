@@ -17,5 +17,6 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": ["src", "beginner", "intermediate", "advanced"],
+  "exclude": ["beginner/06-use-effect.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

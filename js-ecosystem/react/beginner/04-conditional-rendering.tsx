@@ -132,7 +132,7 @@ export default function ConditionalRenderingExercise() {
                         onChange={(e)=>{setTaskTitle(e.target.value)}} 
                         />
                         <p>
-                            {taskTitle ? `当前任务：${taskTitle}` : "还没有填写学习任务"}
+                            {taskTitle ? `当前任务： {taskTitle}` : "还没有填写学习任务"}
                         </p>
                     </div>
 

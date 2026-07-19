@@ -37,8 +37,8 @@
 当前进度：
 
 - 当前主线：JS 生态 -> React（为 React Native 做前置准备）。
-- 最近完成：`js-ecosystem/react/beginner/05-list-rendering.tsx` 第 1 题：课程清单与当前课程详情。
-- 当前待做：React Beginner 06：useEffect 第 1 题（待出题）。
+- 最近完成：`js-ecosystem/react/beginner/06b-use-effect-interval.tsx` 第 1 题：运动秒表。
+- 当前待做：`js-ecosystem/react/beginner/06c-use-effect-autosave.tsx` 第 1 题：草稿自动保存。
 - React 已有学习计划：`js-ecosystem/react/learning-plan.md`。
 - React Native 已有学习计划：`js-ecosystem/react-native/learning-plan.md`。
 - SwiftData 已有学习计划：`apple-ecosystem/swiftdata/learning-plan.md`。
@@ -115,6 +115,17 @@ Swift 文件也使用 `//` 注释，格式相同。
 - 中级和高级题目应根据用户答题表现，逐步、针对性地出题。
 - 出题前若对应技术栈存在 `learning-plan.md`，应先读取并按其中模块顺序推进。
 - 不要因为目录存在就假设练习内容已经完善；先检查文件实际内容。
+- 题目描述必须尽量清晰，尤其是 React / React Native 等 UI 题：应按“真实场景 -> 用户行为 -> 为什么需要这个知识点 -> 明确验收要求”的结构说明，避免只写“用某 API 完成某功能”导致题意难以推断。
+- 每道练习文件顶部必须写清楚运行方法，包括进入哪个目录、执行什么命令、从哪里查看结果，以及端口或运行环境的必要说明；不能只假设用户记得上一题的运行方式。
+
+渐进式教学规则：
+
+- 初级阶段每道题默认只设置一个新的主学习目标。必要的配套 API 可以一起出现，例如 `setInterval` 与 `clearInterval`，但不能同时加入列表渲染、数据加载、选择状态、计时器等多个独立知识点。
+- 新 API 或新概念首次出现时，题目必须先用直白语言说明它解决什么问题、常见使用场景、关键参数和返回值；不能只要求用户照着 API 名称实现。
+- 与本题主目标无关的页面结构、样式、模拟数据和交互应尽量预先提供，让用户只填写当前知识点对应的最小代码区域。
+- 如果一个完整场景涉及多个新知识点，应拆成 `A/B/C` 等递进小题。只有相关小题分别通过后，才能安排明确标注的综合练习。
+- 练习场景应优先来自真实且有使用价值的功能，例如设备连接、秒表、草稿保存、搜索防抖、网络状态和表单交互；场景要适度轮换，不要机械重复“课程列表”或为了套知识点编造无意义业务。
+- 新题可以复用已经通过的知识点，但不应让旧知识点的代码量掩盖本题目标；若复用部分较复杂，应直接提供脚手架。
 
 ## 仓库结构
 
@@ -243,6 +254,10 @@ React、React Native、SwiftUI、UIKit、AppKit 等需要项目环境，具体�
 - [x] `03-use-state.tsx` 第 1 题：学习打卡面板
 - [x] `04-conditional-rendering.tsx` 第 1 题：学习任务状态面板
 - [x] `05-list-rendering.tsx` 第 1 题：课程清单与当前课程详情
+- [x] `06a-use-effect-timeout.tsx` 第 1 题：设备连接提示
+- [x] `06b-use-effect-interval.tsx` 第 1 题：运动秒表
+- [ ] `06c-use-effect-autosave.tsx` 第 1 题：草稿自动保存
+- [ ] `06-use-effect.tsx` 综合练习：课程学习页的数据加载与学习计时器（已保留草稿，暂缓）
 
 ### JS 生态 - React Native
 
